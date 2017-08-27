@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/jkup/babel-plugin-flightjs/issues"
   },
-  "homepage": "https://github.com/jkup/babel-plugin-flightjs#readme"
+  "homepage": "https://github.com/jkup/babel-plugin-flightjs#readme",
+  "devDependencies": {
+    "babel-helper-plugin-test-runner": "^6.24.1"
+  }
 }
