@@ -1,5 +1,5 @@
-const babylon = require('babylon');
-const traverse = require('babel-traverse');
+import babylon from 'babylon';
+import traverse from 'babel-traverse';
 
 const code = `function inbox() {
   this.doSomething = function() { /* ... */ }
