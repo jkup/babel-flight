@@ -1,4 +1,5 @@
-import babylon from 'babylon';
+const babylon = require('babylon');
+const traverse = require('babel-traverse');
 
 const code = `function inbox() {
   this.doSomething = function() { /* ... */ }
@@ -12,4 +13,11 @@ const code = `function inbox() {
 }`;
 
 const ast = babylon.parse(code);
-console.log(ast);
+
+traverse(ast, {
+  enter(path) {
+    if (path.isIdentifier({ name: "on" })) {
+      console.log(path);
+    }
+  }
+});
