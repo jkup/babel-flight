@@ -1,4 +1,4 @@
-export default function simpleComponent() {
+const simpleComponent = () => {
   this.doSomething = function() { /* ... */ }
   this.doSomethingElse = function() { /* ... */ }
 
@@ -8,3 +8,5 @@ export default function simpleComponent() {
     this.on('mouseover', this.doSomethingElse);
   });
 }
+
+module.export = simpleComponent;
