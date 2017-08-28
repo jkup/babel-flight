@@ -1,23 +1,40 @@
-const babylon = require('babylon');
-import traverse from 'babel-traverse';
+export default function({ types: t }) {
+  return {
+    visitor: {
+      ArrowFunctionExpression(path, state) {
+        if (state.opts.spec) {
+          const { node } = path;
+          if (node.shadow) return;
 
-const code = `function inbox() {
-  this.doSomething = function() { /* ... */ }
-  this.doSomethingElse = function() { /* ... */ }
+          node.shadow = { this: false };
+          node.type = 'FunctionExpression';
 
-  // after initializing the component
-  this.after('initialize', function() {
-    this.on('click', this.doSomething);
-    this.on('mouseover', this.doSomethingElse);
-  });
-}`;
+          const boundThis = t.thisExpression();
+          boundThis._forceShadow = path;
 
-const ast = babylon.parse(code);
+          // make sure that arrow function won't be instantiated
+          path.ensureBlock();
+          path
+            .get('body')
+            .unshiftContainer(
+              'body',
+              t.expressionStatement(
+                t.callExpression(state.addHelper('newArrowCheck'), [
+                  t.thisExpression(),
+                  boundThis
+                ])
+              )
+            );
 
-traverse(ast, {
-  enter(path) {
-    if (path.node.type === 'arguments' && path.node.value === 'mouseover') {
-      console.log(path);
+          path.replaceWith(
+            t.callExpression(t.memberExpression(node, t.identifier('bind')), [
+              t.thisExpression()
+            ])
+          );
+        } else {
+          path.arrowFunctionToShadowed();
+        }
+      }
     }
-  }
-});
+  };
+}
