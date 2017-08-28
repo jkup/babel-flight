@@ -4,6 +4,7 @@
   "description": "A babel plugin to visualize flight events and components Edit",
   "main": "src/index.js",
   "scripts": {
+    "lint": "prettier --single-quote --write '{app,__{tests,mocks}__}/**/*.js'",
     "test": "jest"
   },
   "repository": {
@@ -24,7 +25,8 @@
   },
   "homepage": "https://github.com/jkup/babel-flightjs#readme",
   "devDependencies": {
-    "jest": "^20.0.4"
+    "jest": "^20.0.4",
+    "prettier": "^1.5.3"
   },
   "dependencies": {
     "babel-traverse": "^6.26.0",
