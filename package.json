@@ -1,5 +1,5 @@
 {
-  "name": "babel-flightjs",
+  "name": "babel-flight",
   "version": "0.0.1",
   "description": "A babel plugin to visualize flight events and components Edit",
   "main": "src/index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jkup/babel-flightjs.git"
+    "url": "git+https://github.com/jkup/babel-flight.git"
   },
   "keywords": [
     "babel",
@@ -21,9 +21,9 @@
   "author": "Jon Kuperman",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jkup/babel-flightjs/issues"
+    "url": "https://github.com/jkup/babel-flight/issues"
   },
-  "homepage": "https://github.com/jkup/babel-flightjs#readme",
+  "homepage": "https://github.com/jkup/babel-flight#readme",
   "devDependencies": {
     "jest": "^20.0.4",
     "prettier": "^1.5.3"
