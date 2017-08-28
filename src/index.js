@@ -16,9 +16,8 @@ const ast = babylon.parse(code);
 
 traverse(ast, {
   enter(path) {
-    if (
-      path.node.type === 'arguments' &&
-      path.node.value === 'mouseover'
-    ) { console.log(path) }
+    if (path.node.type === 'arguments' && path.node.value === 'mouseover') {
+      console.log(path);
+    }
   }
 });

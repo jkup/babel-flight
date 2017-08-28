@@ -4,7 +4,7 @@
   "description": "A babel plugin to visualize flight events and components Edit",
   "main": "src/index.js",
   "scripts": {
-    "lint": "prettier --single-quote --write '{app,__{tests,mocks}__}/**/*.js'",
+    "lint": "prettier --single-quote --write '{src,test}/**/*.js'",
     "test": "jest"
   },
   "repository": {
